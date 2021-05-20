@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Les commercants</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/styleU.css">
+	<link rel="stylesheet" href="css/style.css">	
+
+	</head>
+	<body>
+	
+	<header>
+	<nav>
+  <ul>
+    <li><a href="/accueil_utilisateur">Accueil</a></li>
+    <li><a href="/listeReservation">Mes réservations</a></li>
+     <li><a href="/listeCommercant">Les commerçants</a></li>
+   
+  </ul>
+</nav>
+
+
+</header>
+	
+	
+	<section class="ftco-section">
+		<div class="container">
+					
+                <div class="row">
+                <div class="col-md-12">
+                    <h4 class="text-center mb-4">Voici la liste des commerçants</h4>
+                     <div class="col-sm-6">
+                      <span class="form-label">Rechercher commerçant par:</span>
+                         <select class="form-control">
+                           <option>Catégorie</option>
+                           <option>Localisation</option>
+                          </select>
+                      <input type="text">
+                      <a href="#" class="btn btn-primary">Rechercher</a>
+                     </div>
+					
+					<br>
+					
+					
+					<div class="table-wrap">
+						<table class="table">
+					    <thead class="thead-primary">
+					      <tr>
+					        <th>Email</th>
+					        <th>Nom</th>
+					        <th>Prénom</th>
+					        <th>Catégorie</th>
+					        <th>Localisation</th>
+					        <th>Action</th>
+							
+					      </tr>
+					    </thead>
+					    <tbody>
+					      <tr th:each ="c:${listeCommercant}">
+					        <th th:text="${c.email}" scope="row" class="scope" ></th>
+					        <td th:text="${c.nom}"></td>
+					        <td th:text="${c.prenom}"></td>
+					        <td th:text="${c.categorie}"></td>
+					        <td th:text="${c.localisation}"></td>
+					        <td>
+					        	<a href="#" class="btn btn-primary">Voir</a>
+							</td>
+					      </tr>
+						 
+					    </tbody>
+					  </table>
+					</div>
+                      
+					<div class="col-md-12">
+						<br>
+						<br>
+						<a href="/accueil_utilisateur" class="text-center mb-4">Liste des paniers</h4>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+ 
+
+	</body>
+</html>
+

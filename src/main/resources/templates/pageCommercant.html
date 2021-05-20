@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>ANTI-GASPI</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/styleU.css">	
+	<link rel="stylesheet" href="css/style.css">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">BIENVENUE M.</h2>
+			</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h4 class="text-center mb-4">Voici la liste de vos paniers</h4>
+					
+					<br>
+                    <a href="/ajouterPanier" class="btn btn-primary">Ajouter panier</a>
+                    <br><br>
+					<div class="table-wrap">
+						<table class="table">
+					    <thead class="thead-primary">
+					      <tr>
+					        <th>ID</th>
+					        <th>Titre</th>
+					        <th>Categorie</th>
+					        <th>Localisation</th>
+					        <th>Description</th>
+							<th>Action</th>
+					      </tr>
+					    </thead>
+					    <tbody>
+					      <tr th:each ="p:${listePanierCommercant}">
+					        <th  th:text="${p.id}" scope="row" class="scope" ></th>
+					        <td  th:text="${p.titre}"></td>
+					        <td  th:text="${p.categorie}"></td>
+					        <td  th:text="${p.localisation}"></td>
+					      
+							<td  th:text="${p.description}"></td>
+					        <td>
+								<a  th:href="@{'/modifierPanier/' + ${p.id}}" class="btn btn-primary">Modifier</a>
+								<a  th:href="@{'/supprimerPanier/'+ ${p.id}}" class="btn btn-primary">Supprimer</a>
+							</td>
+					      </tr>
+						  
+					      
+					    </tbody>
+					  </table>
+					</div>
+					<br>
+					
+				</div>
+			</div>
+		</div>
+	</section>
+
+ 
+
+	</body>
+</html>
+

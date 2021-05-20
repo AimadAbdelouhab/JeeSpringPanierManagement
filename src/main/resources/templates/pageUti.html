@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>ANTI-GASPI</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/styleU.css">	
+	
+    <link rel="stylesheet" href="css/style.css">
+	
+
+	</head>
+	<body><header>
+	<nav>
+  <ul>
+    <li><a href="/accueil_utilisateur">Accueil</a></li>
+    <li><a href="/listeReservation">Mes réservations</a></li>
+     <li><a href="/listeCommercant">Les commerçants</a></li>
+   
+  </ul>
+</nav>
+</header>
+	
+	
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					BIENVENUE M.<label th:text="${utilisateur.nom}"></label>
+					
+					
+				</div>
+			</div>
+			
+			
+			
+			<div class="row">
+				<div class="col-md-12">
+					<h4 class="text-center mb-4">Voici la liste des paniers</h4>
+					
+					<div class="col-sm-6">
+                      <span class="form-label">Trier les paniers par:</span>
+                         <select class="form-control">
+                           <option>Catégorie</option>
+                           <option>Commerçant</option>
+                           <option>Localisation</option>
+                          </select>
+                      <input type="text">
+                      <a href="#" class="btn btn-primary">Trier</a>
+            </div>
+            <br>
+					<div class="table-wrap">
+						<table class="table">
+					    <thead class="thead-primary">
+					      <tr>
+					        <th>ID</th>
+					        <th>Categorie</th>
+					        <th>Description</th>
+					        <th>Localisation</th>
+					        <th>Titre</th>
+							<th>Commerçant</th>
+							<th>Consulter</th>
+							<th>Réserver</th>
+					      </tr>
+					    </thead>
+					    <tbody>
+					      <tr th:each ="p:${listePanier}">
+					        <th th:text="${p.id}" scope="row" class="scope" ></th>
+					        <td th:text="${p.categorie}"></td>
+					        <td th:text="${p.description}"></td>
+					        <td th:text="${p.localisation}"></td>
+					        <td th:text="${p.titre}"></td>
+							<td>
+								<a  th:text="${p.commercant.nom}" ></a>
+								<a th:text="${p.commercant.prenom}"></a>
+							</td>
+					        <td>
+								<a th:href="@{'/consulterPanier/' + ${p.id}}" class="btn btn-primary">Consulter</a>
+								<a  th:if="${p.reserve=='non reservé'}"  th:href="@{'/reserverPanier/'+ ${p.id}}" class="btn btn-primary">Réserver</a>
+								
+							</td>
+							<td>
+								
+								
+								<a th:text="${p.reserve}"></a>
+							</td>
+					      </tr>
+						 
+					    </tbody>
+					  </table>
+					</div>
+                      
+					<div class="col-md-12">
+						<br>
+						<br>
+						<a href="/listeCommercant" class="text-center mb-4"></a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+ 
+
+	</body>
+</html>
+
